@@ -1,0 +1,16 @@
+﻿{
+  "name": "dotnet test",
+  "command": "dotnet test {ai.args}",
+  "runner": "podman",
+  "image": "mcr.microsoft.com/dotnet/sdk:6.0",
+  "mount": {
+    "host_path": "{working_dir}",
+    "path": "/app"
+  },
+  "auto_discovery": [
+    {"command": "--help", "description": "Invoke 'dotnet test --help' to discover testing options and capabilities"}
+  ],
+  "description": "Runs .NET tests in a containerized environment, mounting the working directory for access to code changes. Results can be captured and analyzed by the AI."
+}
+
+

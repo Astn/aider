@@ -1,0 +1,18 @@
+{
+  "docker": {
+    "type": "Container Runtime",
+    "command_exists": "docker image inspect {image}",
+    "command_install": "docker pull {image}",
+    "command_run": "docker run -v {mount.host_path}:{mount.path} {image} {command}",
+    "description": "Docker-compatible container engine. Commands are invoked from the working directory. The working directory path is volume-mounted using {working_dir}:{container_path} for access inside the container.",
+    "supported_host_os": "Linux: Native, Windows: Native (via WSL2/VM), macOS: VM"
+  },
+  "podman": {
+    "type": "Container Runtime",
+    "command_exists": "podman image inspect {image}",
+    "command_install": "podman pull {image}",
+    "command_run": "podman run -v {mount.host_path}:{mount.path} {image} {command}",
+    "description": "Daemonless, Docker-compatible container engine. Commands are invoked from the working directory. The working directory path is volume-mounted using {working_dir}:{container_path} for access inside the container.",
+    "supported_host_os": "Linux: Native, Windows: WSL2/VM, macOS: VM"
+  }
+}
