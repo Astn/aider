@@ -17,10 +17,10 @@ The file is a JSON object where each key is a unique configuration name (e.g., "
 
 ### Common Placeholders
 The following placeholders are available in `command_exists`, `command_install`, and `command_run` for consistency:
-- `{host_path}`: The path to the working directory on the host machine (deprecated in favor of mount-specific placeholders).
-- `{container_path}`: The path inside the container where the host directory is mounted (use `mount.path` in manifests).
 - `{image}`: The container image to use (can be referenced from plugin manifest).
 - `{command}`: The actual command or process to execute.
+- `{mount.host_path}`: The path to the working directory on the host machine, as defined in the plugin manifest.
+- `{mount.path}`: The path inside the container where the host directory is mounted, as defined in the plugin manifest.
 - `{job_file}`: The path to a job file (for orchestration tools).
 - `{pod}`: The pod name (for Kubernetes-based tools).
 - `{allocation}`: The allocation ID (for Nomad).
